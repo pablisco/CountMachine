@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.pablisco.countmachine"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.pablisco.countmachine.test.TestRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs = ['src/main/kotlin']
+        test.java.srcDirs = ['src/test/kotlin']
+        androidTest.java.srcDirs = ['src/androidTest/kotlin']
+    }
+
+    dataBinding.enabled = true
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$android_support_version"
+    implementation "com.android.support:design:$android_support_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.22.1"
+    implementation project(':core')
+
+    kapt "com.android.databinding:compiler:$android_plugin_version"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "com.google.truth:truth:0.40"
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}

@@ -1,0 +1,17 @@
+apply plugin: 'java-library'
+apply plugin: "kotlin"
+
+sourceSets {
+    main.kotlin.srcDirs = ['src/main/kotlin']
+    test.kotlin.srcDirs  = ['src/test/kotlin']
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "com.google.truth:truth:0.40"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.pablisco.countmachine.CountModel" />
+
+        <variable
+            name="onUpdate"
+            type="kotlin.jvm.functions.Function0&lt;kotlin.Unit>" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".count.CountActivity">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/number3"
+            app:layout_constraintEnd_toStartOf="@id/number2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread">
+
+            <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/number1Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_1"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@id/number2"
+                android:onTextChanged="@{ (a, b, c, d) -> onUpdate.invoke() }"
+                tools:showIn="@layout/activity_count" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/number1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/number1"
+            app:layout_constraintTop_toTopOf="@id/number1">
+
+            <EditText
+                android:id="@+id/number2Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_2"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@id/number3"
+                android:onTextChanged="@{ (a, b, c, d) -> onUpdate.invoke() }"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/number5"
+            app:layout_constraintEnd_toStartOf="@id/number2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/number1">
+
+            <EditText
+                android:id="@+id/number3Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_3"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@id/number4"
+                android:onTextChanged="@{ (a, b, c, d) -> onUpdate.invoke() }"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/number3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/number3"
+            app:layout_constraintTop_toTopOf="@id/number3">
+
+            <EditText
+                android:id="@+id/number4Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_4"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@id/number5"
+                android:onTextChanged="@{ (a, b, c, d) -> onUpdate.invoke() }"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/totalDescriptionView"
+            app:layout_constraintEnd_toStartOf="@id/number2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/number3">
+
+            <EditText
+                android:id="@+id/number5Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_5"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@id/number6"
+                android:onTextChanged="@{ (a, b, c, d) -> onUpdate.invoke() }"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/number5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/number5"
+            app:layout_constraintTop_toTopOf="@id/number5">
+
+            <EditText
+                android:id="@+id/number6Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_6"
+                android:inputType="numberDecimal"
+                android:onTextChanged="@{ (a, b, c, d) -> onUpdate.invoke() }"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:id="@+id/totalDescriptionView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/totalView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{model.totalDescription}"
+            tools:text="12+13+14=" />
+
+        <TextView
+            android:id="@+id/totalView"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/number5"
+            android:text="@{model.total}"
+            tools:text="999" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
