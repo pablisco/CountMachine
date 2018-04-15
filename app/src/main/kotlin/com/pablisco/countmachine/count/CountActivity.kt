@@ -41,7 +41,7 @@ class CountActivity : AppCompatActivity() {
     }
 
     private fun update() {
-        launch {
+        job = launch {
             viewModel.update(binding.inputValues)
             if (lifecycle.currentState >= Lifecycle.State.CREATED) {
                 withContext(UI) {
