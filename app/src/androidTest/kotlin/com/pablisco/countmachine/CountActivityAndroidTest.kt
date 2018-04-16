@@ -11,6 +11,9 @@ import com.pablisco.countmachine.count.CountActivity
 import org.junit.Rule
 import org.junit.Test
 
+/**
+ * Tests are flaky at this moment as we are not suspending the test to wait for the commands to finish
+ */
 class CountActivityAndroidTest {
 
     @Rule
@@ -40,7 +43,6 @@ class CountActivityAndroidTest {
     fun shouldRenderTwoEntries() {
         onView(withId(R.id.number1Input)).perform(click(), typeText("10"))
         onView(withId(R.id.number2Input)).perform(click(), typeText("20"))
-//        onView(withId(R.id.totalView)).perform(click())
         onView(withId(R.id.totalView)).check(matches(withText("30")))
         onView(withId(R.id.totalDescriptionView)).check(matches(withText("10+20=")))
     }
